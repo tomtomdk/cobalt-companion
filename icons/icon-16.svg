@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" role="img" aria-label="Cobalt Companion">
+  <rect width="16" height="16" rx="4" fill="#0f1720"/>
+  <path d="M8 3v6m0 0 3-3M8 9 5 6" fill="none" stroke="#67e8f9" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M4 12h8" stroke="#3b82f6" stroke-width="1.6" stroke-linecap="round"/>
+</svg>

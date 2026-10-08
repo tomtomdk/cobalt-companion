@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Cobalt Companion",
+  "description": "Download media through your self-hosted Cobalt API server.",
+  "version": "1.0.0",
+  "minimum_chrome_version": "116",
+  "action": {
+    "default_title": "Cobalt Companion",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options/options.html",
+  "permissions": [
+    "activeTab",
+    "clipboardRead",
+    "contextMenus",
+    "downloads",
+    "notifications",
+    "offscreen",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' data: http: https:; connect-src http: https:"
+  }
+}

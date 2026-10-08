@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cobalt Companion Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="brand">
+          <img src="../icons/icon-48.png" width="48" height="48" alt="">
+          <div>
+            <h1>Cobalt Companion</h1>
+            <p id="saveState">Settings are stored locally in this browser profile.</p>
+          </div>
+        </div>
+        <button id="saveButton" class="primary" type="button">Save Settings</button>
+      </header>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Server</h2>
+          <button id="testButton" class="ghost" type="button">Test Connection</button>
+        </div>
+        <div class="two-col">
+          <label>
+            <span>Active instance</span>
+            <select id="activeInstance"></select>
+          </label>
+          <label>
+            <span>Instance name</span>
+            <input id="instanceName" type="text" autocomplete="off">
+          </label>
+        </div>
+        <label>
+          <span>Cobalt API URL</span>
+          <input id="apiUrl" type="url" placeholder="https://your-cobalt-instance.example/">
+        </label>
+        <div class="two-col">
+          <label>
+            <span>Authentication</span>
+            <select id="authScheme">
+              <option value="none">None</option>
+              <option value="api-key">API key</option>
+              <option value="bearer">Bearer token</option>
+            </select>
+          </label>
+          <label>
+            <span>API key or token</span>
+            <input id="apiKey" type="password" autocomplete="off">
+          </label>
+        </div>
+        <p class="hint">API keys stay in extension-local storage and are not included in ordinary settings exports, but this storage is not a secure secret vault.</p>
+        <div class="actions">
+          <button id="addInstanceButton" class="ghost" type="button">Add Instance</button>
+          <button id="removeInstanceButton" class="danger" type="button">Remove Instance</button>
+        </div>
+        <output id="apiResult" class="output"></output>
+      </section>
+
+      <section class="section">
+        <h2>Downloads</h2>
+        <div class="two-col">
+          <label>
+            <span>Default mode</span>
+            <select id="defaultMode">
+              <option value="video">Video</option>
+              <option value="audio">Audio</option>
+            </select>
+          </label>
+          <label>
+            <span>Video quality</span>
+            <select id="videoQuality">
+              <option value="144">144p</option>
+              <option value="240">240p</option>
+              <option value="360">360p</option>
+              <option value="480">480p</option>
+              <option value="720">720p</option>
+              <option value="1080">1080p</option>
+              <option value="1440">1440p</option>
+              <option value="2160">2160p</option>
+              <option value="max">Max</option>
+            </select>
+          </label>
+          <label>
+            <span>Audio format</span>
+            <select id="audioFormat">
+              <option value="best">Best</option>
+              <option value="mp3">MP3</option>
+              <option value="ogg">OGG</option>
+              <option value="wav">WAV</option>
+              <option value="opus">Opus</option>
+            </select>
+          </label>
+          <label>
+            <span>Video container</span>
+            <select id="videoContainer">
+              <option value="auto">Auto</option>
+              <option value="mp4">MP4</option>
+              <option value="webm">WebM</option>
+              <option value="mkv">MKV</option>
+            </select>
+          </label>
+          <label>
+            <span>Filename style</span>
+            <select id="filenameStyle">
+              <option value="classic">Classic</option>
+              <option value="pretty">Pretty</option>
+              <option value="basic">Basic</option>
+              <option value="nerdy">Nerdy</option>
+            </select>
+          </label>
+          <label>
+            <span>History limit</span>
+            <input id="historyLimit" type="number" min="1" max="100" step="1">
+          </label>
+        </div>
+        <label class="check">
+          <input id="saveAs" type="checkbox">
+          <span>Show Save As dialog</span>
+        </label>
+      </section>
+
+      <section class="section">
+        <h2>Interface</h2>
+        <div class="two-col">
+          <label>
+            <span>Theme</span>
+            <select id="theme">
+              <option value="dark">Dark</option>
+              <option value="light">Light</option>
+              <option value="system">System</option>
+            </select>
+          </label>
+          <label class="check inline">
+            <input id="compactMode" type="checkbox">
+            <span>Compact mode</span>
+          </label>
+          <label class="check inline">
+            <input id="notifications" type="checkbox">
+            <span>Notifications</span>
+          </label>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

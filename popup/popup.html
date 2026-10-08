@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cobalt Companion</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <img src="../icons/icon-32.png" width="32" height="32" alt="">
+          <div>
+            <h1>Cobalt Companion</h1>
+            <p id="apiStatus" class="status pending">Checking API</p>
+          </div>
+        </div>
+        <button id="settingsButton" class="icon-button" type="button" title="Settings" aria-label="Settings">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 .6 1.7 1.7 0 0 0-.4 1.1V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1-.6 1.7 1.7 0 0 0-1.1-.4H2a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 3.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06A2 2 0 1 1 6.03 4.2l.06.06A1.7 1.7 0 0 0 8 4.6a1.7 1.7 0 0 0 1-.6 1.7 1.7 0 0 0 .4-1.1V3a2 2 0 0 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.17.37.5.75 1 .6.34.18.72.4 1.1.4H22a2 2 0 0 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15Z"/></svg>
+        </button>
+      </header>
+
+      <section class="panel">
+        <label for="mediaUrl">Media URL</label>
+        <div class="input-row">
+          <input id="mediaUrl" type="url" autocomplete="url" placeholder="https://..." required>
+          <button id="pasteButton" class="icon-button" type="button" title="Paste from clipboard" aria-label="Paste from clipboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8v4H8z"/><path d="M16 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2"/></svg>
+          </button>
+        </div>
+
+        <div class="segmented" role="radiogroup" aria-label="Download mode">
+          <button class="segment active" type="button" data-mode="video">Video</button>
+          <button class="segment" type="button" data-mode="audio">Audio</button>
+        </div>
+
+        <div class="grid">
+          <label>
+            <span>Video quality</span>
+            <select id="videoQuality">
+              <option value="144">144p</option>
+              <option value="240">240p</option>
+              <option value="360">360p</option>
+              <option value="480">480p</option>
+              <option value="720">720p</option>
+              <option value="1080">1080p</option>
+              <option value="1440">1440p</option>
+              <option value="2160">2160p</option>
+              <option value="max">Max</option>
+            </select>
+          </label>
+          <label>
+            <span>Audio format</span>
+            <select id="audioFormat">
+              <option value="best">Best</option>
+              <option value="mp3">MP3</option>
+              <option value="ogg">OGG</option>
+              <option value="wav">WAV</option>
+              <option value="opus">Opus</option>
+            </select>
+          </label>
+        </div>
+
+        <button id="downloadButton" class="primary" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5"/><path d="M5 21h14"/></svg>
+          <span>Download</span>
+        </button>
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="pickerSection" class="panel hidden" aria-live="polite">
+        <div class="section-head">
+          <h2>Choose Items</h2>
+          <button id="downloadAllButton" class="ghost" type="button">Download All</button>
+        </div>
+        <div id="pickerList" class="picker-list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-head">
+          <h2>Recent Downloads</h2>
+          <button id="clearHistoryButton" class="text-button" type="button">Clear</button>
+        </div>
+        <div id="recentList" class="recent-list empty">No downloads yet</div>
+      </section>
+    </main>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
